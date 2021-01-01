@@ -1,0 +1,33 @@
+version: "2"
+services:
+
+  web:
+    build: ./web
+    ports:
+      - 80:80
+    volumes:
+      - ./web:/home/workspace
+      - ./web/vhost:/opt/docker/etc/nginx/conf.d
+      - ../source:/var/www
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sample
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    networks:
+      default:
+        aliases:
+          - local.mysql
+volumes:
+  mysql:
+    driver: local
