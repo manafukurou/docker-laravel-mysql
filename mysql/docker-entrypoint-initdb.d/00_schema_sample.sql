@@ -1,8 +1,8 @@
-create database `sample_database`;
+create database `{{sample_database}}`;
 
-grant all on sample_database.* to 'admin'@'%' ;
+grant all on {{sample_database}}.* to 'admin'@'%' ;
 
-USE `sample_database`;
+USE `{{sample_database}}`;
 
 START TRANSACTION;
 
