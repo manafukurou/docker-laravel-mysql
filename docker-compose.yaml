@@ -20,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: {{sample_database}}
       MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_PASSWORD: {{sample_mysql_password}}
     command: >
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_unicode_ci
