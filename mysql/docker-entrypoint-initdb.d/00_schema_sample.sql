@@ -1,5 +1,3 @@
-create database `{{sample_database}}`;
-
 grant all on {{sample_database}}.* to 'admin'@'%' ;
 
 USE `{{sample_database}}`;
