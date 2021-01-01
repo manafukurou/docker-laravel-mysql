@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 echo "--設定 0 ----------------------------"
-echo -n "localPrjをフォークしたリポジトリ名を入力してください": 
+echo -n "laravelPrjをフォークしたリポジトリ名を入力してください": 
 read laravelPrjDir  
 sed  -i "" -e  "s/{{laravelPrj}}/${laravelPrjDir}/g" ./web/vhost/front.conf 
 
