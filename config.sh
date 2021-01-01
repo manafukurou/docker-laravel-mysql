@@ -25,6 +25,8 @@ read database
 
 sed  -i "" -e  "s/{{sample_database}}/${database}/g" ./mysql/docker-entrypoint-initdb.d/00_schema_sample.sql
 sed  -i "" -e  "s/{{sample_database}}/${database}/g" ./docker-compose.yaml
+sed  -i "" -e  "s/{{sample_database}}/${database}/g" ../source/$laravelPrjDir/config/database.php
+
 
 echo "------------------------------"
 echo "-Success:データベース名設定完了  -"
@@ -35,5 +37,6 @@ echo "--設定 3 ----------------------------"
 echo -n "adminのパスワードを入力してください":
 read sample_mysql_password 
 sed  -i "" -e  "s/{{sample_mysql_password}}/${sample_mysql_password}/g" ./docker-compose.yaml
+sed  -i "" -e  "s/{{sample_mysql_password}}/${sample_mysql_password}/g" ../source/$laravelPrjDir/config/database.php
 
 #docker-compose up -d 
